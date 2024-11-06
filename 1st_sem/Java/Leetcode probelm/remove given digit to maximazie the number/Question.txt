@@ -1,0 +1,4 @@
+
+Question : remove-digit-from-number-to-maximize-result
+
+Link: https://leetcode.com/problems/remove-digit-from-number-to-maximize-result/description/

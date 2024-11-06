@@ -1,0 +1,24 @@
+class Solution {
+    public String removeDigit(String number, char digit) {
+        String maxResult = "";
+        
+        // Traverse each character in the string
+        for (int i = 0; i < number.length(); i++) {
+            // Check if the current character matches the digit to be removed
+            if (number.charAt(i) == digit) {
+                // Form a new string by removing the current occurrence of the digit
+                String currentResult = number.substring(0, i) + number.substring(i + 1);
+                
+                // Update maxResult if the currentResult is greater
+                if (currentResult.compareTo(maxResult) > 0) {
+                    maxResult = currentResult;
+                }
+            }
+        }
+        
+        return maxResult;
+    }
+}
+
+
+time complexity o(n^2)
