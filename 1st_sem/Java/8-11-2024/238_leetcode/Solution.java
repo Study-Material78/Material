@@ -1,31 +1,29 @@
-/import java.util.ArrayList;
-import java.util.Arrays;
-public class Solution{
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
 
-    public static int[] pro(int[] nums)
-    {
-        int[] arr=new int[nums.length];
-        int product=1;
-        for(int value:nums)
-        {
-            product=value*product;
-        }
-        for(int i=0;i<nums.length;i++)
-        {
-            arr[i]=product/nums[i];
-        }
-       
-        return arr;
+        int n=nums.length;
+        int[] left=new int[n];
+         int[] right=new int[n];
+         int[] res=new int[n];
+
+         left[0]=1;
+         for(int i=1;i<n;i++)
+         {
+            left[i]=nums[i-1]*left[i-1];
+         }
+
+         right[n-1]=1;
+         for(int j=n-2;j>=0;j--)
+         {
+            right[j]=nums[j+1]*right[j+1];
+         }
+         //multiply
+
+         for(int k=0;k<n;k++)
+         {
+            res[k]=left[k]*right[k];
+         }
+
+        return res;
     }
-
-
-    
-
-    public static void main(String[] args)
-    {
-        int[] nums={1,2,3,4};
-      
-        System.out.println("output"+Arrays.toString(pro(nums)));
-    }
-        
 }
