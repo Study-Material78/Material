@@ -1,0 +1,10 @@
+Write a Java program that takes a string as input and extracts only the unique characters from it, preserving the order of their first occurrence in the string.
+
+
+sample input and sample output
+
+"programming" → Only the first occurrences of each character are kept: "progamin".
+"hello" → Only the first occurrences of each character are kept: "helo".
+"java" → Only the first occurrences of each character are kept: "jav".
+"abcdabc" → Only the first occurrences of each character are kept: "abcd".
+"mississippi" → Only the first occurrences of each character are kept: "misp".
