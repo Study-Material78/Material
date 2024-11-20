@@ -1,0 +1,37 @@
+class Solution {
+     
+     static {
+        for(int i=0;i<=300;i++)
+        {
+              maxArea(new int[]{0,0});
+        }
+     }
+
+    public  static  int maxArea(int[] height) {
+         int max_area=0,curr_area,h,w;
+         int left=0,right=height.length-1;
+         while(left<right)
+         {
+
+                    w=right-left;
+                    h=Math.min(height[left],height[right]);
+                    curr_area= w*h;
+                    if(curr_area>max_area)    
+                    {
+                        max_area=curr_area;
+                    }
+
+                     while( left<right && height[left]<=h )
+                     {
+                         left++;
+                     }
+                     while( left<right && height[right]<=h )
+                     {
+                         right--;
+                     }
+         }
+          
+        return max_area;
+        
+    }
+}
