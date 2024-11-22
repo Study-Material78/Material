@@ -8,6 +8,11 @@ class Node{
             this.next=null;
     }
 }
+
+
+
+
+
 class linked_operation
 {
 
@@ -48,49 +53,55 @@ class linked_operation
 
     }
 
-   public  Node insert_pos(Node head,int pos,int value)
-   {
-     int len=length(head);
-    if(pos<0 || pos>len+1)
-    {
-        System.out.println("invalid position");
-    }
-    else if(pos==0)
-    {
-        //System.out.print("hi");
-       head=insert_head(head,value);
-    }
-    // else if(pos==len)
-    // {
-    //     insert_end(head,value);
-    // }
-    else
-    {
+// method for inserting the node
+  public Node  insert_pos(Node head,int pos,int value)
+  {
+   
+
+      int l=len(head);  //3
+      Node new_node= new Node(value);
+      if( pos<0 ||   pos>l+1 )               // pos<l
+      {
+          System.out.println("invalid position to insert");
+      }
+      else if(pos==0)
+      {
+        head=insert_head(head,value);
+      }
+      else
+      {
         Node curr=head;
-        for(int i=0;i<pos-1;i++) // i=1,pos=2
+        for(int i=0;i<pos-1;i++)
         {
-            curr=curr.next;
+             curr=curr.next;
         }
-        Node new_node=new Node(value);
         new_node.next=curr.next;
         curr.next=new_node;
 
-    }
-    return head;
-      
-   }
-
-   public int length(Node head)
-   {
-      int count=0;
-      Node curr=head;
-      while(curr!=null)
-      {
-        count++;
-        curr=curr.next;
       }
-      return count;
-   }
+  return head;
+
+
+
+
+  }
+
+
+
+    public int len(Node head)
+    {
+        int length=0;
+        Node curr=head;
+        while(curr!=null)
+        {
+            length++;
+            curr=curr.next;
+        }
+        return  length;
+    }
+
+
+
 
      //traversal
      public  void  display(Node head)
@@ -123,14 +134,11 @@ class linked_operation
 
 
         // insert  at tail
-         list.insert_end(head, 30);
+         list.insert_end(head, 40);
+         list.insert_pos(head,3,100);
+
+    
          
-       head =list.insert_pos(head,0,77);
-      head =list.insert_pos(head,5,79);
-       head =list.insert_pos(head,2,100);
-       head =list.insert_pos(head,7,200);
-
-
        //traversal
         list.display(head);
 
